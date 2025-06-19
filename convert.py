@@ -41,12 +41,14 @@ def run(fn: str, name: str, description: str, date: str):
         rmtree(odir)
     os.makedirs(odir)
 
+    print(f"Processing {fn}...")
+
     c = Corpus(
         name,
         document="Article",
         segment="Sentence",
         token="Word",
-        author="Nora Hollenstein and Noëmi Aepli and Simon Clematide",
+        authors="Nora Hollenstein and Noëmi Aepli and Simon Clematide",
         description=description,
         date=date,
         url="https://noe-eva.github.io/NOAH-Corpus/",
@@ -71,6 +73,8 @@ def run(fn: str, name: str, description: str, date: str):
         a.make()
 
     c.make(odir)
+
+    print(f"Done with {fn} -- output files in {odir}")
 
 
 for fn, details in CORPORA.items():
